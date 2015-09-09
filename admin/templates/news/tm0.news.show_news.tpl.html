@@ -1,0 +1,59 @@
+<div id="content">
+  {if !isset($searchMsg) }
+  <span> To see details, click on the respective News No . </span>
+  {* display pagination header *}
+  <label>  </label>
+  <table width="100%" class="table">
+    <caption>{$paginate.first}-{$paginate.last} News Articles out of {$paginate.total} displayed.</caption>
+    <thead class="thead">
+      <tr class="tr">
+        <th class="th">Title</th>
+        <th class="th">Category</th>
+        <th class="th">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {section name=info loop=$news}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td"> {$news[info].title} </td>
+        <td class="td"> {$news[info].value} </td>
+        <td class="td">
+          <a href="./index.php?path=./main/news/tm0.news.disp_details.php&news_no={$news[info].news_no}"> DETAILS </a>
+          |<a href="./index.php?path=./main/news/tm0.news.upd_news.php&news_no={$news[info].news_no}"> UPDATE </a>
+          |<a href="./index.php?path=./main/news/tm0.news.del_news.php&news_no={$news[info].news_no}"> DELETE </a>
+          {if ($news[info].photo) == ''}
+          |<a href="./index.php?path=./main/news/tm0.news.upload_photo.php&news_no={$news[info].news_no}"> UPLOAD PHOTO </a>
+          {else}
+          |<a href="./index.php?path=./main/news/tm0.news.show_photos.php&news_no={$news[info].news_no}"> SHOW PHOTOS </a>
+          {/if}
+        </td>
+      </tr>
+      {/section}
+    </tbody>
+    <tfoot class="tfoot">
+      {if count($news) % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td" colspan="3">
+          <label class="labels"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  {* display pagination info *}
+  {*<label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>*}
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+    <p>
+      <a href="./index.php?path=./main/news/tm0.news.search_news.php"> Search with another criteria </a><br>
+    </p>
+  </div>
+  {/if}
+</div>

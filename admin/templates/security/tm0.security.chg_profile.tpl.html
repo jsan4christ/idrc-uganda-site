@@ -1,0 +1,36 @@
+<div id="content">
+  {if !isset($updateMsg) }
+
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form method="post" action="{$SCRIPT_NAME}">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Profile *</label>
+            <span class="err">{validate id="prof" message="Choose a profile please"}</span>
+            { $profs }
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">New Profile Name *</label>
+            <span class="err">{validate id="newprof" message="New Name is required"}</span>
+            <span class="err">{validate field="newname" criteria="alreadyExists" message="This Category already exists."}</span>
+            <input type="text" name="newname" size="10" value="{$newname|escape}" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="submit" value="update">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

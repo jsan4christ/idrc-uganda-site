@@ -1,0 +1,50 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:left "> </b>
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href="#"> </a>
+    </b>
+  </div>
+  {/if}
+  <br />
+
+  {if !isset($updateMsg) }
+
+  <span style="font-style:italic;"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form method="post" action="{$SCRIPT_NAME}">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Categories *</label>
+            <span class="err">{validate id="grp" message="Choose a Category please"}</span>
+            { $cat }
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">New Category Name *</label>
+            <span class="err">{validate id="newgrp" message=" The New Name is required"}</span>
+            <span class="err">{validate field="newname" criteria="alreadyExists" message="This Category already exists."}</span>
+            <input type="text" name="newname" size="10" value="{$newname|escape}" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="submit" value="update">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+    <p>
+      <a href="./index.php?path=./main/cats/main.reg_category.php">Register another Category</a><br>
+      <a href="./index.php?path=./main/cats/main.show_categories.php">Show Categories</a>
+    </p>
+  </div>
+  {/if}
+</div> 

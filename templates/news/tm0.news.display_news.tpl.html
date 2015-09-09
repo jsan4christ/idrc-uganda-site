@@ -1,0 +1,23 @@
+
+{if !isset($searchMsg) }
+<div class="msgBox">
+  {* display pagination header *}
+  <label class="msg"> Articles {$paginate.first}-{$paginate.last} out of {$paginate.total} displayed. </label>
+
+  {section name=info loop=$news}
+  <a href="./index.php?path=./main/news/tm0.news.disp_details.php&id={$news[info].news_no}"><h3> {$news[info].title} </h3></a>
+  <p style="border-bottom:1px solid gray;">
+    <label class="msg">{$news[info].summary}</label>
+  </p>
+  {/section}
+  {* display pagination info *}
+  <label class="msg"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+</div>
+{else}
+<div class="msgBox">
+  <h3> {$searchMsg} </h3>
+  <p>
+    <a href="./index.php?path=./main/news/tm0.news.search_news.php"> Search for News Articles </a><br>
+  </p>
+</div>
+{/if}

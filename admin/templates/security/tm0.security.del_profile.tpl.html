@@ -1,0 +1,29 @@
+<div id="content">
+  {if !isset($updateMsg) }
+
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form  method="post" action="{$SCRIPT_NAME}" name="delProfile">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Profile *</label>
+            <span class="err">{validate id="prof" message="Choose a profile please"}</span>
+            { $profs }
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="submit" value="delete">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

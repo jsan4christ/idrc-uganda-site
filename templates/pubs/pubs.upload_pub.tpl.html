@@ -1,0 +1,22 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+
+  </div>
+  <br />
+  {/if}
+  {if !isset($updateMsg) }
+  <span style="font-style:italic;"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <div id="forms">
+    { $opt }
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+    <p>
+      <a href="./index.php?path=./main/pubs/pubs.upload_pub.php">Upload another Publication</a><br>
+      <a href="./index.php?path=./main/pubs/pubs.show_pubs.php">Show Publications</a>
+    </p>
+  </div>
+  {/if}
+</div> 

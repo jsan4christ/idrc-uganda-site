@@ -1,0 +1,23 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href="">  </a>
+    </b>
+  </div>
+  <br />
+  {/if}
+  <div class="story">
+    <h3> Manage News </h3>
+    <p>
+      <a href="./index.php?path=./main/news/tm0.news.reg_news.php"> Register an Article </a><br>
+      <a href="./index.php?path=./main/news/tm0.news.search_news.php"> Search for Articles </a><br>
+    </p>
+    <h3> Manage Newsletter </h3>
+    <p>
+      <a href="./index.php?path=./main/news/news.show_subscribers.php&s=o"> Show Subscribers in Status 'Open' </a><br>
+      <a href="./index.php?path=./main/news/news.show_subscribers.php&s=a"> Show Subscribers in Status 'Added' </a><br>
+      <a href="./index.php?path=./main/news/news.show_subscribers.php&s=r"> Show Subscribers in Status 'Removed' </a><br>
+    </p>
+  </div>
+</div> 

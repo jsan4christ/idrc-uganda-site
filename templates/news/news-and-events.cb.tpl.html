@@ -1,0 +1,57 @@
+<div id="page-content-container">
+	<div class="mini-content">
+    	  {include file="display/WWALinks.tpl.html"}
+    </div>
+    <div class="main-content">
+    	<h1>News and Events</h1>
+       	{if !isset($searchMsg) }
+    <h3>Click on the article <span style="color:#FF0000">title</span> to view the details</h3><br>
+    {* display pagination header *}
+    <h3> {$paginate.first}-{$paginate.last} Aritcles of {$paginate.total} displayed. </h3>
+
+    {section name=info loop=$news}
+    <h3>
+      <a href="./index.php?prgm=news-details&news_no={$news[info].news_no}">{$news[info].title}</a>
+    </h3>    
+    {$news[info].summary}
+      <h3>{$news[info].pub_date}</h3><br>
+   
+    {/section}
+
+    {* display pagination info *}
+    <h3> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </h3>
+    {else}
+   
+      <h3> {$searchMsg} </h3>
+    </div>
+    {/if}
+    
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+
+<atom:link href="http://mifumi.org/rss/mifumiPublicationsRSS.xml" rel="self" type="application/rss+xml" />
+
+<title>Mifumi Case Studies</title>
+<link>http://www.mifumi.org/index.php?prgm=mifumi-files</link>
+<description>This is an rss feed of the different publications of Mifumi.</description>
+<lastBuildDate>Mon, 01 Dec 2008 17:30:00 GMT</lastBuildDate>
+<language>en-us</language>
+
+<item>
+<title>MPS News Letter</title>
+<link>http://mifumi.org/index.php?prgm=pubs.view_pub&amp;doc=./docs/1227245149MPS1.pdf</link>
+<guid>http://mifumi.org/index.php?prgm=pubs.view_pub&amp;doc=./docs/1227245149MPS1.pdf</guid>
+<pubDate>Tue, 04 Nov 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ DRIDA supported me morally ]]</description>
+</item>
+
+<item>
+<title>Isaac Ongwena Morris</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=16</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=16</guid>
+<pubDate>Wed, 05 Nov 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ A new life, a new hope for 3 year old Morris ]]</description>
+</item>
+
+<item>
+<title>Rosemary Aketch Maria</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=3</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=3</guid>
+<pubDate>Mon, 15 Sep 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ I could not believe that my children were back in my arms. ]]</description>
+</item>
+
+<item>
+<title>Felista Atuki Nyaburu</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=23</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=23</guid>
+<pubDate>Fri, 10 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ Blessed with a startup pack ]]</description>
+</item>
+
+<item>
+<title>Ann Amweno</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=5</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=5</guid>
+<pubDate>Fri, 06 June 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ My life has improved completely ]]</description>
+</item>
+
+<item>
+<title>Kevin Ochen Bernadette</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=20</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=20</guid>
+<pubDate>Sun, 07 Dec 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ I have been given a chance to serve my community ]]</description>
+</item>
+
+<item>
+<title>Agatha Sarah Awor Julia</title>
+<link>http://mifumi.org/index.php?prgm=case-details&amp;case_no=16</link>
+<guid>http://mifumi.org/index.php?prgm=case-details&amp;case_no=16</guid>
+<pubDate>Sat, 18 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ Julia gets a second chance to go to School ]]</description>
+</item>
+<!-- put more items here -->
+
+</channel>
+</rss>

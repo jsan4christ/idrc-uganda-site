@@ -1,0 +1,95 @@
+
+CREATE TABLE formitable_users (
+  UserID int(5) unsigned NOT NULL auto_increment,
+  Email varchar(40) NOT NULL default '',
+  Password varchar(16) NOT NULL default '',
+  FName varchar(25) NOT NULL default '',
+  MName varchar(25) NOT NULL default '',
+  LName varchar(25) NOT NULL default '',
+  UserType enum('0','1','2','3','4') NOT NULL default '0',
+  Occupation tinytext NOT NULL,
+  Address tinytext NOT NULL,
+  Address2 tinytext NOT NULL,
+  City tinytext NOT NULL,
+  PostalCode int(5) unsigned NOT NULL default '0',
+  TelePhone varchar(16) NOT NULL default '',
+  Mobile varchar(16) NOT NULL default '',
+  Facsimile varchar(16) NOT NULL default '',
+  FindUs enum('Website','Search','Word of Mouth','Other') NOT NULL default 'Search',
+  NewsLetter enum('1','0') NOT NULL default '1',
+  Donation enum('0','1','2','3','4','5','6') NOT NULL default '0',
+  Donation_Type enum('0','1','2') NOT NULL default '0',
+  Donation_Amount varchar(7) NOT NULL default '0',
+  recurring_Method enum('0','1','2','3','4','5','6') NOT NULL default '0',
+  NamePosted enum('1','0') NOT NULL default '1',
+  volunteer enum('2','1','0') NOT NULL default '0',
+  gender enum('2','1','0') NOT NULL default '0',
+  Age tinyint(3) unsigned NOT NULL default '0',
+  WkDays set('','1','2','3','4','5','6','7') NOT NULL default '',
+  Details tinytext NOT NULL,
+  StateCode enum('','AK','AZ','AR','CA','CO','CT','DE','FL','GA','GU','HI','ID','IL','IN','IA','KS','KY',
+      'LA','ME','MH','MD','MA','MI','MN','MS','MO','MT','NE','NV','NJ','NM','NY','NC','ND','OH','OK','OR',
+      'PW','PA','PR','RI','SC','SD','TN','TX','UT','VT','VI','VA','WA','WV','WI','WY') NOT NULL default '',
+  CancelDonation enum('1','0') NOT NULL default '0',
+  PRIMARY KEY  (UserID)
+) TYPE=MyISAM;
+CREATE TABLE states (
+  Name varchar(40) NOT NULL default '',
+  Code char(2) NOT NULL default ''
+) TYPE=MyISAM;
+
+INSERT INTO states VALUES (' Select a State', '');
+INSERT INTO states VALUES ('Alabama', 'AL');
+INSERT INTO states VALUES ('Alaska', 'AK');
+INSERT INTO states VALUES ('Arizona', 'AZ');
+INSERT INTO states VALUES ('Arkansas', 'AR');
+INSERT INTO states VALUES ('California', 'CA');
+INSERT INTO states VALUES ('Colorado', 'CO');
+INSERT INTO states VALUES ('Connecticut', 'CT');
+INSERT INTO states VALUES ('Delaware', 'DE');
+INSERT INTO states VALUES ('Florida', 'FL');
+INSERT INTO states VALUES ('Georgia', 'GA');
+INSERT INTO states VALUES ('Hawaii', 'HI');
+INSERT INTO states VALUES ('Idaho', 'ID');
+INSERT INTO states VALUES ('Illinois', 'IL');
+INSERT INTO states VALUES ('Indiana', 'IN');
+INSERT INTO states VALUES ('Iowa', 'IA');
+INSERT INTO states VALUES ('Kansas', 'KS');
+INSERT INTO states VALUES ('Kentucky', 'KY');
+INSERT INTO states VALUES ('Louisiana', 'LA');
+INSERT INTO states VALUES ('Maine', 'ME');
+INSERT INTO states VALUES ('Maryland', 'MD');
+INSERT INTO states VALUES ('Massachusetts', 'MA');
+INSERT INTO states VALUES ('Michigan', 'MI');
+INSERT INTO states VALUES ('Minnesota', 'MN');
+INSERT INTO states VALUES ('Mississippi', 'MS');
+INSERT INTO states VALUES ('Missouri', 'MO');
+INSERT INTO states VALUES ('Montana', 'MT');
+INSERT INTO states VALUES ('Nebraska', 'NE');
+INSERT INTO states VALUES ('Nevada', 'NV');
+INSERT INTO states VALUES ('New Hampshire', 'NH');
+INSERT INTO states VALUES ('New Jersey', 'NJ');
+INSERT INTO states VALUES ('New Mexico', 'NM');
+INSERT INTO states VALUES ('New York', 'NY');
+INSERT INTO states VALUES ('North Carolina', 'NC');
+INSERT INTO states VALUES ('North Dakota', 'ND');
+INSERT INTO states VALUES ('Ohio', 'OH');
+INSERT INTO states VALUES ('Oklahoma', 'OK');
+INSERT INTO states VALUES ('Oregon', 'OR');
+INSERT INTO states VALUES ('Pennsylvania', 'PA');
+INSERT INTO states VALUES ('Puerto Rico', 'PR');
+INSERT INTO states VALUES ('Rhode Island', 'RI');
+INSERT INTO states VALUES ('South Carolina', 'SC');
+INSERT INTO states VALUES ('South Dakota', 'SD');
+INSERT INTO states VALUES ('Tennessee', 'TN');
+INSERT INTO states VALUES ('Texas', 'TX');
+INSERT INTO states VALUES ('Utah', 'UT');
+INSERT INTO states VALUES ('Vermont', 'VT');
+INSERT INTO states VALUES ('Virgin Islands', 'VI');
+INSERT INTO states VALUES ('Virginia', 'VA');
+INSERT INTO states VALUES ('Washington', 'WA');
+INSERT INTO states VALUES ('West Virginia', 'WV');
+INSERT INTO states VALUES ('Wisconsin', 'WI');
+INSERT INTO states VALUES ('Wyoming', 'WY');
+
+

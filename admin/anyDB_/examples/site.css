@@ -1,0 +1,24 @@
+body{ margin:0; padding:10px; text-align:center; height:101%; font-family:arial,sans-serif; font-size:80%; }
+a{ font-weight:bold; color:#487292; }
+a:hover{ background-color:#F1F7FB; color:#546B77; }
+h2{ margin-top:0px; font-size:140%; }
+h3{ margin-top:0px; font-size:120%; }
+code,pre{ display:block; overflow:auto; font-size:small; }
+#container{ width:760px; border:1px solid #546B77; margin:0px auto; }
+#header{ background-color:#ABBCC4; height:40px; }
+#header h1{ display:none; }
+#logo{ width:193px; height:30px; background: url("images/formitable.gif") no-repeat; float:left; margin:5px 10px; cursor:pointer; }
+#nav{ font-size:14px; float:right; margin:20px 10px 10px 0px; color:#546B77; }
+#nav a{ color:#546B77; text-decoration:none; }
+#nav a:hover{ background-color:#ABBCC4; text-decoration:underline; }
+#defline{ background-color:#BCC9CF; padding:4px 10px; text-align:left; }
+#def{ width:461px; height:14px; background: url("images/def.gif") no-repeat; }
+#def p{ display:none; }
+#content{ padding:10px; text-align:left; }
+#footer{ width:760px; color:white; background-color:#546B77; border:1px solid #546B77;
+		margin:0 auto 10px; font-size:12px; text-align:right; }
+#footer a{ color:white; font-weight:normal; }
+#footer a:hover{ background-color:transparent; }
+#footer p{ margin:5px 5px 2px; }
+.normal{ font-size:1em; font-weight:normal; }
+.box{ border:1px solid #ABBCC4; background-color:#E0E6E8; padding:7px; width:97%; margin:5px auto; }

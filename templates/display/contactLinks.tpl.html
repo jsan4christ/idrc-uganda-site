@@ -1,0 +1,13 @@
+
+    <div style="float: left" id="my_menu" class="sdmenu">
+      <div>
+        <span class="expanded">More Contact Info</span>
+		    {section name=info loop=$cats} 	
+        <a href="./index.php?prgm=contacts&id={$cats[info].id}">{$cats[info].value}</a>
+		{/section}
+		<a href="./index.php?prgm=directions">Directions</a>
+			<a href="./index.php?prgm=newsletter">Newsletter</a>			
+      </div>
+      
+    </div>
+

@@ -1,0 +1,22 @@
+<div id="content">
+  {if !isset($updateMsg) }
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <div id="forms">
+    { $staffOpen }
+    {if isset($page1) }
+
+    { $firstname }
+    { $lastname }
+    { $acc }
+    { $chg }
+
+    { $end }
+    { $staffClose2 }
+    {/if}
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

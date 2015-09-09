@@ -1,0 +1,41 @@
+<div id="content">
+  <span class="title"> Fill in all or any of the fields below. </span>
+  <form method="post" action="./index.php?path=./main/news/tm0.news.show_news.php">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel labels">Category</label><br>
+            <select name="category" class="select">
+              <option value="">  </option>
+              {section name=c loop=$cs}
+              <option value="{$cs[c].id}"> {$cs[c].value} </option>
+              {/section}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">Title</label>
+            <input type="text" name="title" size="100" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td><label class="selectlabel">Results Per Page</label><br>
+            <select name="results" class="select">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="Search" value="Search">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<div id="content">
+<span class="title"> Fill in all or any of the fields below. </span>
+<form method="post" action="./index.php?path=./main/user/user.show_user.php">
+  <div id="forms">
+    <table width="100%">
+      <tr>
+        <td ><label class="textlabel labels">First Name</label>
+          <input type="text" name="fname" size="10" class="text">
+        </td>
+      </tr>
+      <tr>
+        <td ><label class="textlabel labels">Last Name</label>
+          <input type="text" name="lname" size="10" class="text">
+        </td>
+      </tr>
+      <tr>
+        <td><label class="selectlabel labels">Results Per Page</label><br>
+          <select name="results" class="select">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="button">
+            <input type="reset" value="Reset Form"><input type="submit" name="Search" value="Search">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+</div>

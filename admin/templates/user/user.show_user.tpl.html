@@ -1,0 +1,53 @@
+<div id="content">
+  {if !isset($searchMsg) }
+  {* display pagination header *}
+  <label>  </label>
+  <table width="100%" class="table" summary="Users">
+    <caption>{$paginate.first}-{$paginate.last} Users out of {$paginate.total} displayed.</caption>
+    <thead class="thead">
+      <tr class="tr">
+        <th class="th">First Name</th>
+        <th class="th">Last Name</th>
+        <th class="th">Action</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      {section name=info loop=$user}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr">
+      {else}
+      <tr class="tr odd">
+        {/if}
+        <td class="td"> {$user[info].firstname} </td>
+        <td class="td"> {$user[info].lastname} </td>
+        <td class="td">
+          |<a href="./index.php?path=./main/user/user.disp_user.php&identifier={$user[info].identifier}"> DETAILS </a>
+          |<a href="./index.php?path=./main/user/user.upd_user.php&identifier={$user[info].identifier}"> UPDATE </a>
+          |<a href="./index.php?path=./main/user/user.del_user.php&identifier={$user[info].identifier}&fname={$user[info].firstname}&lname={$user[info].lastname}"> DELETE </a>
+        </td>
+      </tr>
+      {/section}
+    </tbody>
+    <tfoot class="tfoot">
+      {if count($hs) % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td" colspan="5">
+          <label class="labels"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  {* display pagination info *}
+  {*paginate_prev} {paginate_middle page_limit="3"} {paginate_next*}
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+    <p>
+      <a href="./index.php?path=./main/user/user.search_user.php"> Search with another criteria </a><br>
+    </p>
+  </div>
+  {/if}
+</div>

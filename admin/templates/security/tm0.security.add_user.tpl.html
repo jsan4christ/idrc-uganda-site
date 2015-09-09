@@ -1,0 +1,52 @@
+<div id="content">
+  {if !isset($updateMsg) }
+  <span> Adding a User to a Profile  </span>
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form method="post" action="./index.php?path=./main/security/tm0.security.add_user.php">
+    <div id="forms">
+      <table width="100%">
+
+        <tr>
+          <td ><label class="textlabel">Username *</label>
+            <span class="err">{validate id="usr" message="A User is required"}</span>
+            { $user }
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label> This User already belongs to the following Profile(s);</label><br>
+            {if isset($msg) }
+            <label style="padding-left:10px;"> {$msg} </label><br>
+            {else}
+            <ul style="list-style:none;margin:0;padding:0 0 0 1em;text-indent:-1em;">
+              {section name=info loop=$userProfiles}
+              <li style="padding-left:10px;">&#187; <label> {$userProfiles[info].profile}</label></li>
+              {/section }
+            </ul>
+            {/if}
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">Profile *</label>
+            <span class="err">{validate id="prof" message="Choose a Profile please"}</span>
+            { $userProf }
+          </td>
+        </tr>
+        {if isset($button) }
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form" onclick="javascript:window.history.back()"><input type="submit" name="submit" value="add user">
+            </div>
+          </td>
+        </tr>
+        {/if}
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

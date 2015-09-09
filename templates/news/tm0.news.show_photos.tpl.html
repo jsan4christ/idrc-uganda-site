@@ -1,0 +1,34 @@
+<div id="content">
+{if count($imgs) > 0 }
+<div>
+  <table class="table" width="100%" summary="Photos">
+    <thead class="thead">
+      <tr class="tr">
+        <th class="th"> Photo </th>
+        <th class="th"> Action </th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      {section name=img loop=$imgs}
+      {if $smarty.section.img.index % 2 == 0}
+      <tr class="tr">
+      {else}
+      <tr class="tr odd">
+        {/if}
+        <td class="td" width="300px">
+          <img src="{$imgs[img].photo}" alt="{$imgs[img].photo_desc}" title="{$imgs[img].photo_desc}"><br><br>
+        </td>
+        <td class="td">
+          <a href="./index.php?path=./main/news/tm0.news.del_photo.php&news_no={$imgs[img].news_no}&photo={$imgs[img].photo}"> DELETE </a>
+        </td>
+      </tr>
+      {/section}
+    </tbody>
+  </table>
+</div>
+{else}
+<div class="msgBox">
+  <h3>NO PHOTOS HAVE BEEN UPLOADED YET.</h3>
+</div>
+{/if}
+</div>

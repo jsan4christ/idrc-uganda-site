@@ -1,0 +1,21 @@
+<div id="content">
+{if !isset($msg) }
+<div class="msgBox">
+  <h3 style="color:red">
+    NOTE:ALL INFORMATION REGARDING THIS FAQ WILL BE DELETED.
+  </h3>
+  <p>
+    To proceed, click: <a href="./index.php?path=./main/faqs/faqs.del_faq.php&id={$id}&delete=confirmed"><b style="color:red"> DELETE </b></a><br>
+    Else: <a href="javascript:window.history.back()"> CANCEL </a><br>
+  </p>
+</div> 
+{else}
+<div class="msgBox">
+  <label class="msg"> {$msg} </label>
+  <p>
+    <a href="./index.php?path=./main/faqs/faqs.reg_faq.php">Register another FAQ</a><br>
+    <a href="./index.php?path=./main/faqs/faqs.show_faqs.php">Show FAQs</a>
+  </p>
+</div>
+{/if}
+</div>

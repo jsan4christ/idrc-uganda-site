@@ -1,0 +1,238 @@
+        /***********************************************/
+        /* ehmis.css                            		*/
+        /* Use with emes templates           			*/
+        /***********************************************/
+
+        /***********************************************/
+        /* HTML tag styles                             */
+        /***********************************************/
+        /*div{border: 1px solid #666600;}*/
+        body{
+          font-family: Arial,sans-serif;
+          color: #333333;
+          line-height: 1.166;
+          margin-left: 2%;
+          margin-right: 15%;
+          margin-top: 1%;
+          margin-bottom: 1%;
+          padding: 20px;
+          min-width: 850px;
+          background-color: #DEDECA;
+        }
+
+        a{
+          font-family: Verdana,Helvetica,Geneva,sans-serif;
+          font-size: 14px;
+          color: #006699;
+          text-decoration: none;
+        }
+        a:link {
+          text-decoration: none;
+        }
+        a:visited{
+          text-decoration: none;
+          color: #0066ff;
+        }
+        a:hover{
+          color: #009966;
+          text-decoration: none;
+        }
+        /* overrides decoration from previous rule for hovered links */
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Arial,sans-serif;
+          margin: 0px;
+          padding: 0px;
+        }
+
+        h1{
+          font-family: Verdana,Arial,sans-serif;
+          font-size: 120%;
+          color: #334d55;
+        }
+
+        h2{
+          font-size: 114%;
+          color: #006699;
+        }
+
+        h3{
+          font-size: 100%;
+          color: #334d55;
+        }
+
+        h4{
+          font-size: 100%;
+          font-weight: normal;
+          color: #333333;
+        }
+
+        h5{
+          font-size: 100%;
+          color: #334d55;
+        }
+        label{
+          font: bold 14px "Myriad Condensed Web";
+          color: #FF6600;
+          /* display: block; */
+        }
+        span{
+          font: bold 14px "Myriad Condensed Web";
+          color: #FF6600;
+          display: block;
+        }
+        .sys{
+          font-size: 110%;
+          letter-spacing: 1em;
+        }
+        .img{
+          float: right;
+          margin-left: 5px;
+          margin-bottom: 5px;
+        }
+
+        /***********************************************/
+        /* Layout Divs                                 */
+        /***********************************************/
+
+        div#masthead{
+          padding: 10px 0px;
+          background-color: #C3D2F3;
+        }
+        div#navBar{
+          padding: 10px 0px;
+          margin-top: 30px;
+          margin-right: 76.5%;
+          background-color: #C3D2F3;
+        }
+        div#content{
+          float:right;
+          width: 76%;
+          padding: 10px 2px 10px 3px;
+          background-color: #C3D2F3;
+        }
+        div#footer{
+          clear: both;
+          font-size:70%;
+          color: #002066;
+        }
+		div#footer a{
+          clear: both;
+          font-size:100%;
+          color: #002033;
+        }
+		div#footer a:hover{
+          clear: both;
+          font-size:100%;
+          color: #002033;
+        }
+
+
+        /***********************************************/
+        /*Component Divs                               */
+        /***********************************************/
+
+        #globalNav{
+          color: #006666;
+          white-space: nowrap;
+          font-size: 14px;
+          font-weight: normal;
+          margin-left: 71%
+        }
+        #logIn{
+          float:left;
+          width: 70%;
+          font-size: 14px;
+        }
+        #loggedIn{
+          float:left;
+          width: 70%;
+          font-size: 14px;
+        }
+
+        #forms{
+          width:50%;
+          padding:5px;
+          border:2px solid #666000;
+          text-align:left;
+        }
+        /* 'nowrap' prevents links from line-wrapping if there are too many to fit in one line
+        this will force a horizontal scrollbar if there isn't enough room for all links
+        remove rule or change value to 'normal' if you want the links to line-wrap */
+
+
+
+        /************* #Module Navigation Links *************/
+        ul#modNav{
+          margin-left: 0;
+          padding-left: 0;
+          list-style-type: none;
+        }
+
+        ul#modNav a{
+          display: block;
+          text-decoration: none;
+          background: #6699FF;
+          color: #ffffff;
+          padding: .2em .5em;
+          border-bottom: 1px solid #ffffff;
+        }
+
+        ul#modNav a:hover{
+          background: #efc08a;
+          color: #000;
+        }
+
+        ul#modNav li{
+          display: inline;
+        }
+
+        #secLinks{
+          font-size: 15px;
+          padding: 3px ;
+          white-space: nowrap;
+          height: 2em;
+          background-color:#666610;
+          font-weight: bold;
+        }
+
+        /************** .content display styles ***************/
+
+        .feature{
+          padding: 0px 0px 10px 10px;
+          font-size: 80%;
+        }
+
+        .feature h3{
+          padding: 30px 0px 5px 0px;
+          text-align: center;
+        }
+
+        .image{
+          float: left;
+          padding-right: 1em;
+        }
+        .style1 {font-family: Arial, Helvetica, sans-serif}
+        /* adjust margins to change separation between the feature image and text flowing around it */
+
+
+        /************** .story styles *****************/
+
+        .story{
+          clear: both;
+          padding: 5px 0px 0px 10px;
+          font-size: 80%;
+        }
+
+        .story p{
+          padding: 0px 0px 0px 0px;
+        }
+
+        #username{
+          color: red;
+        }
+
+        #detail{
+          font-size: 14px;
+          color: #006699 ;
+        }

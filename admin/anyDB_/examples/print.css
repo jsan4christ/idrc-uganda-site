@@ -1,0 +1,17 @@
+body{ margin:0; padding:0; height:auto; font-family:times,serif; }
+a{ color:black; }
+#container{ width:100%; border-width:0; margin:0; }
+#header{ background-color:white; }
+#header h1{ display:block; text-align:left; }
+#logo,#nav{ display:none; }
+#defline{ background-color:white; padding:0; }
+#def{ width:auto; height:auto; background-image:none; }
+#def p{ display:none; }
+#content{ padding:0; }
+#footer{ width:100%; color:black; background-color:white; border-width:0;
+		margin:0; font-size:inherit; text-align:right; }
+#footer a{ color:black; text-decoration:none; }
+#footer p{ margin:auto; }
+#footer img{ display:none; }
+.normal{ font-size:1em; font-weight:normal; }
+.box{ border-width:0; background-color:white; padding:0px; width:100%; margin:auto; }

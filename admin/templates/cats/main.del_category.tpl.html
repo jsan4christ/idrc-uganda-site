@@ -1,0 +1,51 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:left "> </b>
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href="#"> </a>
+    </b>
+  </div>
+  {/if}
+  <br />
+
+  {if !isset($updateMsg) && !isset($msg) }
+
+  <span style="font-style:italic;"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form  method="post" action="{$SCRIPT_NAME}" name="delProfile">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Category *</label>
+            <span class="err">{validate id="grp" message="Choose a Category please"}</span>
+            { $cons }
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="submit" value="delete">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  {elseif isset($updateMsg) }
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+    <p>
+      <a href="./index.php?path=./main/cats/main.reg_category.php">Register another Category</a><br>
+      <a href="./index.php?path=./main/cats/main.show_categories.php">Show Categories</a>
+    </p>
+  </div>
+  {elseif isset($msg) }
+  <center>
+    <div style="width: 75%;padding:5px;border:2px solid red;">
+      <span style="color: red;">DATA INTEGRITY ERROR</span>
+      <label>This Category Data is already being referenced by other data in the Database.</label><br>
+      <label>It can therefore not be deleted as long as it is in this state.</label><br>
+    </div>
+  </center>
+  {/if}
+</div> 

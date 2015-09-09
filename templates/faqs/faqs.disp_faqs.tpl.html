@@ -1,0 +1,29 @@
+<div class="msgBox">
+  {if !isset($searchMsg) }
+  {* display pagination header *}
+  <span class="faqSpan"> FREQUENTLY ASKED QUESTIONS </span><br>
+  {section name=info loop=$faqs}
+  <a href="./index.php?path=./main/faqs/faqs.disp_faqs.php#{$faqs[info].id}" style="display:block;">
+    Qn {$smarty.section.info.index+1}: {$faqs[info].faq_qn}
+  </a>
+  {/section}
+</div>
+<div class="msgBox">
+  {section name=info loop=$faqs}
+  <h3 id="{$faqs[info].id}"> Qn {$smarty.section.info.index+1}: {$faqs[info].faq_qn} </h3>
+  <p style="padding-bottom:5px;border-bottom:1px solid gray;">
+    <label class="msg">
+      {$faqs[info].faq_ans}
+    </label><br>
+
+    <a href="./index.php?path=./main/faqs/faqs.disp_faqs.php" style="font-size:10px;"> TOP </a>
+  </p>
+  {/section}
+  {* display pagination info *}
+  {*<label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>*}
+  {else}
+  <div class="feature">
+    <h3> {$searchMsg} </h3>
+  </div>
+  {/if}
+</div>

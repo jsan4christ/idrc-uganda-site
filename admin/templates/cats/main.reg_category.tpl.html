@@ -1,0 +1,25 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:left ">  </b>
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href=""> </a>
+    </b>
+  </div>
+  <br />
+  {/if}
+  {if !isset($updateMsg) }
+  <span style="font-style:italic;"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <div id="forms">
+    { $cats }
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+    <p>
+      <a href="./index.php?path=./main/cats/main.reg_category.php">Register another Category</a><br>
+      <a href="./index.php?path=./main/cats/main.show_categories.php">Show Categories</a>
+    </p>
+  </div>
+  {/if}
+</div> 

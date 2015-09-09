@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+
+<atom:link href="http://mifumi.org/rss/mifumiSpecialProjectsRSS.xml" rel="self" type="application/rss+xml" />
+
+<title>Mifumi Special Projects</title>
+<link>http://www.mifumi.org/index.php?prgm=what_we_do</link>
+<description>This is an rss feed of the different special projects/ program areas currently running in Mifumi and those coming up.</description>
+<lastBuildDate>Mon, 01 Dec 2008 17:30:00 GMT</lastBuildDate>
+<language>en-us</language>
+
+<item>
+<title>Legal Aid Basket Fund: 2008-09-01 - 2010-08-31 Danida - (HUGGO)</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=1</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=1</guid>
+<pubDate>Fri, 03 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ Empowering Communities and Leaders against Domestic Violence to train and provide reference materials for averting and resolving cases of Domestic Violence ]]</description>
+</item>
+
+<item>
+<title>Strengthening Africa's response to Gender Based Violence: 2004-01-01 - 2008-12-31</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=2</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=2</guid>
+<pubDate>Fri, 03 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ Mifumi and Masisikumeni have demonstrated strong leadership in bringing difficult and sensitive issues such as bride price, domestic violence, rape and abuse of women and children to the forefront of public consciousness, in some of the remotest and poorest country sides of South Africa and Uganda. Although official date is hard to come by, it is widely recognized that domestic violence is the leading cause of injury and death to women worldwide (J. Seager, in DFID, 2000: Poverty Elimination and the Empowerment of Women) ]]</description>
+</item>
+
+<item>
+<title>VOICES: 2004-03-07 - 2009-10-30 DFID, BIG LOTTERY</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=3</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=3</guid>
+<pubDate>Fri, 03 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ To reduce or remove bride price as a socio culturial constraint contributing to domestic, child exploitation and child abuse and other stake holders to change attitude , practice towards the bride price institution. ]]</description>
+</item>
+
+<item>
+<title>Mifumi Human Rights Defenders Network: 2007-06-01 - 2010-05-31 (DFID)</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=4</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=4</guid>
+<pubDate>Fri, 03 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ Because of the increasing awareness of the need for concerted effforts to counter DVBP, On the 5th of May 2006, organizations across the east and north eastern region of Uganda met at MIFUMI Project premises ina form of a workhop that attracted over 46 participants and they expressed their need to expand DVPB services to the above regions, which MIFUMI Project took upon and lobbied for funding that led to the formation of the Mifumi Human Rights Defenders Network (MHRDN) ]]</description>
+</item>
+
+<item>
+<title>Enterprise: 2008-10-10 - 2010-12-31 Comic Relief, TrickleUP, UNDP, Barefoot College</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=5</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=5</guid>
+<pubDate>Fri, 03 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ The core purpose of the Department of Enterprise Development is to ensure sustainability of MIFUMI the organization and that of her beneficiaries. We do this as part of our conviction that domestic violence causes poverty which causes domestic violence. We are therefore reducing the burden of poverty among the marginalized group, especially women through empowerment schemes that will lead them to financial independence. ]]</description>
+</item>
+
+<item>
+<title>Strategic Grant: 2007-01-01 - 2011-12-31 Comic Relief UK</title>
+<link>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=6</link>
+<guid>http://mifumi.org/index.php?prgm=what_we_do&amp;proj_no=6</guid>
+<pubDate>Mon, 06 Oct 2008 08:30:00 GMT</pubDate>
+<description>[CDATA[ A baseline survey conducted for the period 1999 - 2005 in Tororo district by the MIFUMI Project that involved an analysis of records and a total of 11,356 case files, as well as reviews with at least 35 stakeholders across 10 data centers (which include MIFUMI Advice Centers, Police, Probation, Court , Local and Council offices etc. led to the following results: ]]</description>
+</item>
+<!-- put more items here -->
+
+</channel>
+</rss>

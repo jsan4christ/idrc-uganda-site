@@ -1,0 +1,16 @@
+<div id="content">
+{if !isset($updateMsg) }
+<span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+<div id="forms">
+  { $faq }
+</div>
+{else}
+<div class="msgBox">
+  <label class="msg">{ $updateMsg }</label>
+  <p>
+    <a href="./index.php?path=./main/faqs/faqs.reg_faq.php">Register another FAQ</a><br>
+    <a href="./index.php?path=./main/faqs/faqs.show_faqs.php">Show FAQs</a>
+  </p>
+</div>
+{/if}
+</div>

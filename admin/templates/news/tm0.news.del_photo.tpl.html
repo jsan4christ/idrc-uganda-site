@@ -1,0 +1,16 @@
+<div id="content">
+  {if !isset($msg) }
+  <div class="msgBox">
+    <h3 style="color:red">
+      NOTE:THE CHOSEN PHOTO WILL BE DELETED FROM THE DATABASE.
+    </h3>
+    <p>
+      To proceed, click: <a href="./index.php?path=./main/news/tm0.news.del_photo.php&news_no={$news_no}&photo={$photo}&delete=confirmed"><b style="color:red"> DELETE </b></a><br>
+      Else: <a href="javascript:window.history.back()"> CANCEL </a><br>
+    </p>
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg"> {$msg} </label>
+  </div>
+</div>

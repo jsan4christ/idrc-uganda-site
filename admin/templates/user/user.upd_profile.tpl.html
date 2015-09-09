@@ -1,0 +1,18 @@
+{if !isset($updateMsg) }
+<span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+<div id="forms"> 
+  { $profileOpen }
+  {if isset($page1) }
+  
+  { $fname }
+  { $lname }
+
+  { $end }
+  { $profileClose2 }
+  {/if}
+</div>
+{else}
+<div class="msgBox">
+  <label class="msg">{ $updateMsg }</label>
+</div>
+{/if}

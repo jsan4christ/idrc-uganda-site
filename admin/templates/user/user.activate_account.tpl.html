@@ -1,0 +1,34 @@
+<div id="content">
+{if !isset($updateMsg) }
+
+<span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+<form method="post" action="{$SCRIPT_NAME}">
+  <div id="forms">
+    <table width="100%">
+      <tr>
+        <td ><label class="textlabel">Username *</label>
+          <span class="err">{validate id="usr" message="Choose a username please"}</span>
+          <select name="users" class="select">
+            <option value=""> </option>
+            {section name=info loop=$users}
+            <option value="{$users[info].username}"> {$users[info].firstname} {$users[info].lastname} </option>
+            {/section}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="button">
+            <input type="reset" value="Reset Form"><input type="submit" name="submit" value="Activate">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+{else}
+<div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+</div>
+{/if}	 
+</div>

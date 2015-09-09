@@ -1,0 +1,149 @@
+	/***********************************************/
+	/* ehmis.css                            		*/
+	/* Use with emes templates           			*/
+	/***********************************************/
+	
+	/***********************************************/
+	/* HTML tag styles                             */
+	/***********************************************/ 
+	
+	body{
+	font-family: "Times New Roman", Times, serif;;
+	font-size: 12pt;
+	background-color: white;
+	}
+	
+	a:link, a:visited{
+	background: transparent;
+	font-weight: bold;
+	text-decoration: underline;
+	}
+					
+	
+	/***********************************************/
+	/* Layout Divs                                 */
+	/***********************************************/
+	
+	div#masthead{
+	padding: 10px 0px;
+	background-color: #DEDEA0;
+	}
+	div#navBar{
+	display: none;
+	}
+	div#content{
+	float:none !important; 
+	width: auto;
+	padding: 0px;
+	background-color: transparent;
+	}
+	#content a:link:after, #content a:visited:after {
+   	content: " (" attr(href) ") ";
+   	font-size: 90%;
+   	}
+	div#footer{
+	display: none;
+	}
+	
+	
+	/***********************************************/
+	/*Component Divs                               */
+	/***********************************************/
+
+	#globalNav{
+	font-weight: normal;
+	}
+	#logIn{	
+	float:none !important;
+	width: auto;
+	}
+	#loggedIn{
+	float:none !important; 
+	width: auto; 	
+	}
+
+	#forms{
+	width:70%;
+	padding:5px;
+	border:2px solid #666000;
+	text-align:left;
+	}
+	/* 'nowrap' prevents links from line-wrapping if there are too many to fit in one line
+	   this will force a horizontal scrollbar if there isn't enough room for all links
+	   remove rule or change value to 'normal' if you want the links to line-wrap */
+	
+	
+	
+	/************* #Module Navigation Links *************/
+	ul#modNav{
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	}
+		
+	ul#modNav a{
+	display: block;
+	text-decoration: none;
+	background: #999730;
+	color: #ffffff;
+	padding: .2em .5em;
+	border-bottom: 1px solid #ffffff;
+	}
+		
+	ul#modNav a:hover{
+	background: #6699FF;
+	color: #000;
+	}
+		
+	ul#modNav li{
+	display: inline;
+	}
+	
+	#secLinks{
+	padding: 3px ;
+	white-space: nowrap;
+	height: 2em; 
+	background-color:inherit;
+	font-weight: bold; 
+	}
+	
+	/************** .content display styles ***************/
+	
+	.feature{
+	padding: 0px 0px 10px 10px;
+	font-size: 80%;
+	}
+	
+	.feature h3{
+	padding: 30px 0px 5px 0px;
+	text-align: center;
+	}
+	
+	.image{
+	float: left;
+	padding-right: 1em;
+	height: 5.5em;
+	}
+	.style1 {font-family: Arial, Helvetica, sans-serif}
+	/* adjust margins to change separation between the feature image and text flowing around it */
+	
+	
+	/************** .story styles *****************/
+	
+	.story{
+	clear: both;
+	padding: 5px 0px 0px 10px;
+	font-size: 80%;
+	}
+	
+	.story p{
+	padding: 0px 0px 0px 0px;
+	}
+	
+	#username{
+	color: red;
+	}
+	
+	#detail{
+	color: #006699 ;
+	}

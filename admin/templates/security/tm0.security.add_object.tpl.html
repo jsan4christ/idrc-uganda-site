@@ -1,0 +1,43 @@
+<div id="content">
+  {if !isset($updateMsg) }
+  <span> Adding an Object to a Profile  </span>
+
+  <div class="msgBox">
+    <label> Chosen Object Path: </label><label style="color:red;"> {$objectpath} </label><br>
+    {if isset($msg) }
+    <label class="msg">You are about to set Restrictions at the Folder Level.</label><br>
+    <label class="msg" style="color:red;">NOTE: The Restrictions will also affect the objects in this folder.</label><br>
+    {/if}
+  </div>
+
+  <div class="msgBox">
+    <label>The Above chosen Object is already assigned to the following Profiles:</label><br>
+    {if isset($assignedTo) }
+    <label class="msg" style="padding-left:10px;">{$assignedTo}</label><br>
+    {else}
+    <ul style="list-style:none;margin:0;padding:0 0 0 1em;text-indent:-1em;">
+      {section name=info loop=$result}
+      <li>&#187; <label> {$result[info].profile}</label></li>
+      {/section }
+    </ul>
+    {/if}
+  </div>
+  <div id="forms">
+    {$secOpen}
+
+    {if isset($folder) }
+    <input type="hidden" name="activefolder" value="{$objectpath}">
+    {else}
+    <input type="hidden" name="filename" value="{$objectpath}">
+    {/if}
+    {$objectId}
+    {$profile}
+
+    {$secClose}
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

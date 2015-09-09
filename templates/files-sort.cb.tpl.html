@@ -1,0 +1,63 @@
+<div id="pagecontainer">
+	<div id="left-sidebar">
+   
+        	<br>
+			{$currTreeMenu->toHTML()}<br>
+			{$arcTreeMenu->toHTML()}<br>
+       
+    </div>
+    <div id="right-sidebar">
+    	
+    	<h2>Publications and Downloads</h2>
+<div class="contentm">
+{if !isset($searchMsg) }
+			<span>Click "Download" to download the respective file.</span><br>
+			{* display pagination header *}
+    		<label> Results {$paginate.first}-{$paginate.last} out of {$paginate.total} displayed. </label><br><br>
+  			
+  				
+    			{section name=info loop=$file_title}
+    				
+    					<div class="doc-heads"><a href=main/filemgr/dcl/index.php?{$file_title[info].file_name}>{$file_title[info].file_title}</a></div>
+    					<div class="contentmd">                      
+                         {$file_title[info].description}
+    					<a href=main/filemgr/dcl/index.php?{$file_title[info].file_name} class="link"> [<span class="pub">Published on {$file_title[info].date}</span>] Download</a><br></div><br>    					
+    				
+				{/section}
+    		
+    		{* display pagination info *}
+    		<label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+    	{else}
+    		<div class="feature">
+    			<h3> {$searchMsg} </h3>
+			</div>
+    	{/if}
+        </div>
+
+		
+        <br><br>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<div id="page-content-container">
+	<div class="mini-content">
+    	  
+    </div>
+    <div class="main-content">
+    	<h1>FAQs</h1>
+        <div class="faq-summary">
+        {section name=info loop=$faqs}
+          <a href="./index.php?prgm=faqs#{$faqs[info].id}">{$faqs[info].faq_qn}</a>     
+      	{/section}
+      	</div>
+    {section name=info loop=$faqs}
+    <h4 class="" id="{$faqs[info].id}">{$faqs[info].faq_qn}</h4>
+    
+      <p>{$faqs[info].faq_ans}</p><br>
+      <a href="./index.php?prgm=faqs" style="font-size:.7em;">Back to top</a>
+    <hr>
+    {/section}
+     {* display pagination header *}
+  <label class="page-subhead_l2"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>    
+</div>

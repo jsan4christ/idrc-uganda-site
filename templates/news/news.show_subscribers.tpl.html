@@ -1,0 +1,59 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:left "> </b>
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href=""> </a>
+    </b>
+  </div>
+  {/if}
+  <br />
+  {if !isset($searchMsg) }
+
+  {* display pagination header *}
+  <label> Results {$paginate.first}-{$paginate.last} out of {$paginate.total} displayed. </label>
+  <table class="table" summary="Categories">
+    <thead>
+      <tr class="tr">
+        <th class="th"> Name </th>
+        <th class="th"> Email </th>
+        <th class="th"> Status </th>
+        <th class="th"> Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      {section name=info loop=$cats}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td"> {$cats[info].fname} {$cats[info].lname} </td>
+        <td class="td"> {$cats[info].email} </td>
+        <td class="td"> {$cats[info].status} </td>
+        <td class="td">
+          {if ($cats[info].status) == 'Open'}
+          |<a href="./index.php?path=./main/news/news.newsletter_status.php&id={$cats[info].id}&s=a&fname={$cats[info].fname}&lname={$cats[info].lname}"> CHANGE TO STATUS 'Added' </a>
+          {/if}
+          {if ($cats[info].status) == 'Added'}
+          |<a href="./index.php?path=./main/news/news.newsletter_status.php&id={$cats[info].id}&s=r&fname={$cats[info].fname}&lname={$cats[info].lname}"> CHANGE TO STATUS 'Removed' </a>
+          {/if}
+          {if ($cats[info].status) == 'Removed'}
+          |<a href="./index.php?path=./main/news/news.newsletter_status.php&id={$cats[info].id}&s=a&fname={$cats[info].fname}&lname={$cats[info].lname}"> CHANGE TO STATUS 'Added' </a>
+          {/if}
+        </td>
+      </tr>
+      {/section}
+    </tbody>
+  </table>
+  {* display pagination info *}
+  <label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+    <p>
+
+    </p>
+  </div>
+  {/if}
+</div> 

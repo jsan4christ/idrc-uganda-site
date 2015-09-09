@@ -1,0 +1,27 @@
+<div id="page-content-container">
+	<div class="mini-content">
+    	  {include file="display/WWALinks.tpl.html"}
+    </div>
+    <div class="main-content">
+    	<h1>Publications</h1>
+    <h3 style="font-weight: normal;">Click <span style="color:#FF0000">"Download" </span>to download the respective Publication.</h3>
+   {if !isset($searchMsg) }
+    
+    {* display pagination header *}
+    <h5 style="font-weight: normal"> {$paginate.first}-{$paginate.last} Publications of {$paginate.total} displayed. </h5><br>
+    
+    {section name=info loop=$file_title}
+      <h3 style="font-weight: normal;">{$file_title[info].pub_date} - {$file_title[info].title} [<a href="./index.php?prgm=pubs.view_pub&doc={$file_title[info].doc}">Download</a>]</h3><br>
+          
+        </label>     
+    {/section}
+
+    {* display pagination info *}
+    <label style="display: block; clear: both; margin: 0; padding: 0"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+    {else}
+    <div class="feature">
+      <h3> {$searchMsg} </h3>
+    </div>
+    {/if}
+    
+</div>

@@ -1,0 +1,14 @@
+<div id="content">
+{if !isset($updateMsg) && !isset($uploadMsg) }
+<span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+<div id="forms"> 
+  { $news }
+</div>
+<div class="msgBox">
+  {elseif isset($updateMsg) }
+  <label class="msg">{ $updateMsg }</label>
+  {elseif isset($uploadMsg) }
+  <label class="msg"> Sorry, but you can not upload more than one photo for an article. </label>
+  {/if}
+</div>
+</div>

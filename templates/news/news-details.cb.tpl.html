@@ -1,0 +1,25 @@
+<div id="page-content-container">
+	<div class="mini-content">
+    	  {include file="display/WWALinks.tpl.html"}
+    </div>
+    <div class="main-content">
+    	<h1>The News In Detail</h1>
+       	<div class="page-subhead">{$newsDetails.title}</div>
+    {if $path != ''}
+    <div class="large-case-img">
+      <img src="{$path}" >
+      <span style="clear: both;">
+        <div class="caption_cs">
+          {$newsDetails.photo_desc}
+        </div>
+      </span>
+    </div>
+    {/if}
+
+    <label>
+      {$newsDetails.details}
+    </label>
+    <label style="font-style: italic; font-size: 10px; float: right; margin-right: 10px;">Submitted On: {$newsDetails.pub_date}</label>
+    </div>
+</div>
+	

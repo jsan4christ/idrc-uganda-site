@@ -1,0 +1,47 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+
+  </div>
+  {/if}
+  <br />
+  {if !isset($searchMsg) }
+
+  {* display pagination header *}
+  <label> Results {$paginate.first}-{$paginate.last} out of {$paginate.total} displayed. </label>
+  <table class="table" summary="">
+    <thead>
+      <tr style="font-size:14px;">
+        <th class="th"> Title </th>
+        <th class="th"> Category </th>
+        <th class="th"> Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      {section name=info loop=$docs}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td"> {$docs[info].title} </td>
+        <td class="td"> {$docs[info].value} </td>
+        <td class="td">
+          |<a href="./index.php?path=./main/pubs/pubs.view_pub.php&id={$docs[info].id}&doc={$docs[info].doc}"> VIEW </a><br>
+          |<a href="./index.php?path=./main/pubs/pubs.del_pub.php&id={$docs[info].id}&doc={$docs[info].doc}"> DELETE </a>
+        </td>
+      </tr>
+      {/section}
+    </tbody>
+  </table>
+  {* display pagination info *}
+  <label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+    <p>
+
+    </p>
+  </div>
+  {/if}
+</div> 

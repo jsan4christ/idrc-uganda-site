@@ -1,0 +1,460 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Formitable Examples - Multiple Page User Registration</title>
+
+<meta name="description" content="Uses form field validation and a custom layout.">
+<meta name="keywords" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="paged.php_files/site.css">
+<link rel="stylesheet" type="text/css" href="paged.php_files/print.css" media="print">
+
+<link rel="stylesheet" type="text/css" href="paged.php_files/Formitable_style_users.css"></head>
+
+<body>
+<div id="container">
+
+<div id="header">
+	<h1><a href="http://formitable.sourceforge.net/">Formitable</a></h1>
+	<div id="logo" title="Formitable" onclick="location.href='/index.php';"><!-- --></div>
+	<div id="nav"><a href="http://formitable.sourceforge.net/docs/">Documentation</a> | <a href="http://formitable.sourceforge.net/examples/">Examples</a> |
+	<a href="http://formitable.sourceforge.net/download/">Download</a> | <a href="http://formitable.sourceforge.net/contact.php">Contact</a></div>
+</div>
+<div id="defline">
+<div id="def"><p>n. 1. the inherit form in every MySQL table. 2. the php script that makes it happen.</p></div>
+</div>
+<div id="content">
+<h2>Multiple Page User Registration Example</h2>
+<form name="formitable_users" action="/examples/paged.php" method="post" style="margin: 0pt;">
+<h3>Page 1 of 3</h3>
+<table align="center">
+<tbody><tr>
+<td valign="bottom" width="225"><label class="textlabel" for="FName" onclick="forms['formitable_users'].FName.select();">First Name</label><br>
+<input name="FName" id="FName" size="25" maxlength="25" class="text" type="text"><br><br>
+
+</td>
+<td valign="bottom" width="225"><label class="textlabel" for="MName" onclick="forms['formitable_users'].MName.select();">Middle Name</label><br>
+<input name="MName" id="MName" size="25" maxlength="25" class="text" type="text"><br><br>
+
+</td>
+<td valign="bottom" width="225"><label class="textlabel" for="LName" onclick="forms['formitable_users'].LName.select();">Last Name</label><br>
+<input name="LName" id="LName" size="25" maxlength="25" class="text" type="text"><br><br>
+
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="225"><label class="textlabel" for="Email" onclick="forms['formitable_users'].Email.select();">Email</label><br>
+<input name="Email" id="Email" size="40" maxlength="40" class="text" type="text"><br><br>
+
+</td> 
+<td valign="bottom" width="225"><label class="textlabel" for="Password" onclick="forms['formitable_users'].Password.select();">Password</label><br>
+<input name="Password" id="Password" size="16" maxlength="16" class="text" type="password"><br><br>
+
+</td> 
+<td valign="bottom" width="225"><label class="textlabel" for="Password_verify" onclick="forms['formitable_users'].Password_verify.select();">Verify Password</label><br>
+<input name="Password_verify" id="Password_verify" size="16" maxlength="16" class="text" type="password"><br><br>
+
+</td> 
+</tr>
+<tr>
+<td width="225"><label class="label" for="UserType">I am a</label><br>
+<select name="UserType" id="UserType" size="1" class="select"><option value="0">Please make a selection</option><option value="1">Student</option><option value="2">Developer</option><option value="3">Management</option></select><br><br>
+
+</td> 
+<td width="225"><label class="textlabel" for="Age" onclick="forms['formitable_users'].Age.select();">Age</label><br>
+<input name="Age" id="Age" size="3" maxlength="3" class="text" type="text"><br><br>
+
+</td> 
+<td valign="top" width="225"><label class="label" for="gender">Gender</label><br>
+<select name="gender" id="gender" size="1" class="select"><option value="1">Female</option><option value="2">Male</option></select><br><br>
+
+</td> 
+</tr>
+</tbody></table>
+
+<input name="formitable_multipage" value="start" type="hidden"> 
+<div class="button"><input value="Reset Form" type="reset"><input name="submit" value="Continue" type="submit"></div></form>
+ 
+
+
+
+<hr>
+<h3>Code</h3>
+<p><code><span style="color: rgb(0, 0, 0);"> <span style="color: rgb(0, 0, 187);">&lt;?php <br>
+  </span><span style="color: rgb(255, 128, 0);">//include class, set username, password, 
+  database, and server vars <br>
+  </span><span style="color: rgb(0, 119, 0);">require(</span><span style="color: rgb(221, 0, 0);">"Formitable.class.php"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$user </span><span style="color: rgb(0, 119, 0);">= 
+  </span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">; 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$pass </span><span style="color: rgb(0, 119, 0);">= 
+  </span><span style="color: rgb(221, 0, 0);">"secret"</span><span style="color: rgb(0, 119, 0);">; 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$DB </span><span style="color: rgb(0, 119, 0);">= 
+  </span><span style="color: rgb(221, 0, 0);">"formitable"</span><span style="color: rgb(0, 119, 0);">; 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$server</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">;<br>
+  </span></span></code><code><span style="color: rgb(0, 0, 0);"><span style="color: rgb(0, 119, 0);"><br>
+  </span><span style="color: rgb(255, 128, 0);">//create new Formitable, args are mysql 
+  connection, database and table <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm </span><span style="color: rgb(0, 119, 0);">= 
+  new </span><span style="color: rgb(0, 0, 187);">Formitable</span><span style="color: rgb(0, 119, 0);">( 
+  @</span><span style="color: rgb(0, 0, 187);">mysql_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$host</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">$user</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">$pass</span><span style="color: rgb(0, 119, 0);">),</span><span style="color: rgb(0, 0, 187);">$DB</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"formitable_users" 
+  </span><span style="color: rgb(0, 119, 0);">); <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//set the field name of primary key <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setPrimaryKey</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"UserID"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//force a few field types <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">forceTypes</span><span style="color: rgb(0, 119, 0);">( 
+  array(</span><span style="color: rgb(221, 0, 0);">"UserType"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"WkDays"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Occupation"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Address"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Address2"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"City"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Password"</span><span style="color: rgb(0, 119, 0);">), 
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">"select"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"checkbox"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"text"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"text"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"text"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"text"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">) 
+  ); <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//retrieve normalized data from another 
+  table <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"UserType"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='user'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"NewsLetter"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  DESC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='yn'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='donate'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"recurring_Method"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='recurring'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation_Type"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='dtype'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"NamePosted"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  DESC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='yn'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"volunteer"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='volunteer'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"gender"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='gender'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"WkDays"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"field_data"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"ID 
+  ASC"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"type='days'"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">normalizedField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"StateCode"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"states"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Code"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Name 
+  ASC"</span><span style="color: rgb(0, 119, 0);">); <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//set custom field labels <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">labelFields</span><span style="color: rgb(0, 119, 0);">( 
+  array(</span><span style="color: rgb(221, 0, 0);">"FName"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"MName"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"LName"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"UserType"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"FindUs"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"NewsLetter"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"volunteer"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Donation"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"NamePosted",<br>
+  </span><span style="color: rgb(0, 119, 0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"WkDays"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"PostalCode"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"StateCode"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"TelePhone"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Mobile"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Facsimile"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Details"</span><span style="color: rgb(0, 119, 0);">), 
+  <br>
+  array(</span><span style="color: rgb(221, 0, 0);">"First Name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Middle 
+  Name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Last 
+  Name"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"I 
+  am a"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"How 
+  did you find us?"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);"><br>
+  </span><span style="color: rgb(0, 119, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span style="color: rgb(221, 0, 0);"> 
+  "Subscribe to our newsletter?"</span><span style="color: rgb(0, 119, 0);">, </span><span style="color: rgb(221, 0, 0);">"I 
+  want to Volunteer"</span><span style="color: rgb(0, 119, 0);">, </span><span style="color: rgb(221, 0, 0);">"I 
+  would like to donate"</span><span style="color: rgb(0, 119, 0);">,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span style="color: rgb(221, 0, 0);"> </span><span style="color: rgb(0, 119, 0);"> 
+  </span><span style="color: rgb(221, 0, 0);">"Add name to Sponsors page?"</span><span style="color: rgb(0, 119, 0);">,<span style="color: rgb(221, 0, 0);"> 
+  </span></span><span style="color: rgb(221, 0, 0);">"I can work these days"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Zip 
+  Code"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"State"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Home 
+  Phone"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);"><br>
+  </span><span style="color: rgb(0, 119, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span style="color: rgb(221, 0, 0);"> 
+  </span><span style="color: rgb(221, 0, 0);"> "Cell Phone"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"FAX"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Personal 
+  Message"</span><span style="color: rgb(0, 119, 0);">)<br>
+  ); <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">labelField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Password_verify"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Verify 
+  Password"</span><span style="color: rgb(0, 119, 0);">); <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//don't output field sets (&lt;fieldset&gt; 
+  tag) <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fieldSets</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">; 
+  <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//set up regular expressions for field validation 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerValidation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"required"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">".+"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Input 
+  is required."</span><span style="color: rgb(0, 119, 0);">); <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerValidation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"valid_email"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'^[a-zA-Z0-9_]{2,50}@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.?]+$'</span><span style="color: rgb(0, 119, 0);">,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: rgb(221, 0, 0);">"Invalid 
+  email address."</span><span style="color: rgb(0, 119, 0);">); <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerValidation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"uspostal"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"^[0-9]{5}(-?[0-9]{4})?$"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Invalid 
+  US Postal Code."</span><span style="color: rgb(0, 119, 0);">); <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerValidation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"currency_us"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"^([0-9]+(\.[0-9]{2})?)?$"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Use 
+  dollar amount only."</span><span style="color: rgb(0, 119, 0);">); <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerValidation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"six_chars"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">".{6,}"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Enter 
+  at least six characters."</span><span style="color: rgb(0, 119, 0);">); <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//set up fields for validation using regexs 
+  above <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">validateField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"FName"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"required"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">validateField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Email"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"valid_email"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">validateField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation_Amount"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"currency_us"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">validateField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Password"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"six_chars"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//require the email field to be unique in 
+  the database (doesn't already exist) <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">uniqueField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Email"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"Email 
+  is already registered."</span><span style="color: rgb(0, 119, 0);">); <br>
+  <br>
+  <span style="color: rgb(255, 128, 0);">//set custom success message for update 
+  (after last page) <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">msg_updateSuccess</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(221, 0, 0);">"&lt;center&gt;&lt;div 
+  style=\"width:455; padding:15px; background-color:#F1F3F3;\"&gt;<br>
+  &lt;p&gt;Registration is now complete. Thanks for joining!&lt;/p&gt;&lt;/div&gt;&lt;/center&gt;"</span><span style="color: rgb(0, 119, 0);">; 
+  <br>
+  </span> <br>
+  </span><span style="color: rgb(255, 128, 0);">//set an encryption key so the record ID 
+  is encrypted to prevent tampering <br>
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setEncryptionKey</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"g00D_3nCr4p7"</span><span style="color: rgb(0, 119, 0);">); 
+  <br>
+  </span><span style="color: rgb(0, 0, 187);"><br>
+  </span><span style="color: rgb(255, 128, 0);">//output a feedback box at the top, and 
+  a line above each invalid field</span><span style="color: rgb(0, 0, 187);"><br>
+  $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">feedback</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(221, 0, 0);">"both"</span><span style="color: rgb(0, 119, 0);">;<br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//test for last page and no errors to submit 
+  form, otherwise start form<br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if( 
+  @</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'formitable_multipage'</span><span style="color: rgb(0, 119, 0);">]!=</span><span style="color: rgb(221, 0, 0);">"end" 
+  </span><span style="color: rgb(0, 119, 0);">|| isset(</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errMsg</span><span style="color: rgb(0, 119, 0);">) 
+  ) </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">openForm</span><span style="color: rgb(0, 119, 0);">(); 
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">else 
+  </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">submitForm</span><span style="color: rgb(0, 119, 0);">(); 
+  <br>
+  <br>
+  </span><span style="color: rgb(255, 128, 0);">//first page - test for no submit OR errors 
+  set with a field on the first page <br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if( 
+  !isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'submit'</span><span style="color: rgb(0, 119, 0);">]) 
+  || (isset(</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errMsg</span><span style="color: rgb(0, 119, 0);">) 
+  &amp;&amp; isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'FName'</span><span style="color: rgb(0, 119, 0);">])) 
+  ):<br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;/*** open form pg 
+  1 of 3 ***/ </span><span style="color: rgb(0, 0, 187);">?&gt; <br>
+  </span>&lt;h3&gt;Page 1 of 3&lt;/h3&gt; <br>
+  &lt;table align="center"&gt; <br>
+  &lt;tr&gt; &lt;!-- valign bottom to stay aligned when there is an error message. 
+  --&gt;<br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"FName"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"MName"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"LName"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Email"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Password"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Password"</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">""</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"UserType"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Age"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"gender"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;/table&gt; <br>
+  <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(255, 128, 0);">//on 
+  the first page set multipage to "start"<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">multiPage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"start"</span><span style="color: rgb(0, 119, 0);">);</span><br>
+  <span style="color: rgb(0, 0, 187);"> &nbsp;&nbsp;&nbsp;&nbsp;$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">closeForm</span><span style="color: rgb(0, 119, 0);">(); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span> <br>
+  <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(255, 128, 0);">//test 
+  for a field on the previous page OR errors set with a field from this page <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">elseif( isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'FName'</span><span style="color: rgb(0, 119, 0);">] 
+  ) || ( isset(</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errMsg</span><span style="color: rgb(0, 119, 0);">) 
+  &amp;&amp; isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'City'</span><span style="color: rgb(0, 119, 0);">]) 
+  ) ):<br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);"></span><span style="color: rgb(255, 128, 0);">/*** 
+  open form pg 2 of 3 ***/ </span><span style="color: rgb(0, 0, 187);">?&gt; <br>
+  </span>&lt;h3&gt;Page 2 of 3&lt;/h3&gt; <br>
+  &lt;table&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Occupation"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Address"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Address2"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"City"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"StateCode"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"PostalCode"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"TelePhone"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Mobile"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Facsimile"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;/table&gt; <br>
+  <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(255, 128, 0);">//on 
+  the intermediate pages set multipage to "next" <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">multiPage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"next"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span> <br>
+  <span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">closeForm</span><span style="color: rgb(0, 119, 0);">(); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span> <br>
+  <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(255, 128, 0);">//test 
+  for a field on the previous page OR errors set with a field from this page <br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">elseif( 
+  isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'City'</span><span style="color: rgb(0, 119, 0);">]) 
+  || (isset(</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errMsg</span><span style="color: rgb(0, 119, 0);">) 
+  &amp;&amp; isset(</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'Donation'</span><span style="color: rgb(0, 119, 0);">])) 
+  ):<br>
+  </span><span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;/*** open form pg 
+  3 of 3 ***/ </span><span style="color: rgb(0, 0, 187);">?&gt; <br>
+  </span>&lt;h3&gt;Page 3 of 3&lt;/h3&gt; <br>
+  &lt;table&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"FindUs"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"NewsLetter"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"volunteer"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=450 height=100% colspan=2&gt;<span style="color: rgb(0, 0, 187);">&lt;? 
+  $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Details"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"WkDays"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;/table&gt; <br>
+  <br>
+  &lt;table align="center"&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="bottom"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation_Amount"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;/table&gt; <br>
+  &lt;table align="center"&gt; <br>
+  &lt;tr&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Donation_Type"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;td width=225 valign="top"&gt;<span style="color: rgb(0, 0, 187);">&lt;? $newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"recurring_Method"</span><span style="color: rgb(0, 119, 0);">); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span>&lt;/td&gt; <br>
+  &lt;/tr&gt; <br>
+  &lt;/table&gt; <br>
+  <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(255, 128, 0);">//on 
+  the last page set multipage to "end"<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">multiPage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"end"</span><span style="color: rgb(0, 119, 0);">);</span><br>
+  <span style="color: rgb(255, 128, 0);">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);"></span><span style="color: rgb(0, 0, 187);">$newForm</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">closeForm</span><span style="color: rgb(0, 119, 0);">(); 
+  </span><span style="color: rgb(0, 0, 187);">?&gt; <br>
+  </span> <br>
+  <span style="color: rgb(0, 0, 187);">&lt;? </span><span style="color: rgb(0, 119, 0);">endif; 
+  </span><span style="color: rgb(0, 0, 187);">?&gt;</span></span></code></p>
+
+<hr>
+<h3>MySQL Tables</h3>
+<code></code><pre>CREATE TABLE field_data (
+  ID tinyint(3) unsigned NOT NULL default '0',
+  name tinytext NOT NULL,
+  type varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+INSERT INTO field_data VALUES (0, 'Please make a selection', 'user');
+INSERT INTO field_data VALUES (1, 'Student', 'user');
+INSERT INTO field_data VALUES (2, 'Developer', 'user');
+INSERT INTO field_data VALUES (3, 'Management', 'user');
+INSERT INTO field_data VALUES (1, 'Yes', 'yn');
+INSERT INTO field_data VALUES (0, 'No', 'yn');
+INSERT INTO field_data VALUES (0, 'Make a Selection', 'donate');
+INSERT INTO field_data VALUES (1, 'I would like to pay by credit card', 'donate');
+INSERT INTO field_data VALUES (2, 'I would like to pay by check', 'donate');
+INSERT INTO field_data VALUES (4, 'I am requesting donation forms', '_donate');
+INSERT INTO field_data VALUES (5, 'Please send me information', '_donate');
+INSERT INTO field_data VALUES (1, 'One Time payment', 'dtype');
+INSERT INTO field_data VALUES (6, 'Not at this time', 'donate');
+INSERT INTO field_data VALUES (2, 'Recurring payment', 'dtype');
+INSERT INTO field_data VALUES (1, 'Monthly', 'recurring');
+INSERT INTO field_data VALUES (2, 'Quarterly', 'recurring');
+INSERT INTO field_data VALUES (3, 'Semi-annually', 'recurring');
+INSERT INTO field_data VALUES (4, 'Annually', 'recurring');
+INSERT INTO field_data VALUES (0, 'Make a Selection', 'volunteer');
+INSERT INTO field_data VALUES (1, 'Yes', 'volunteer');
+INSERT INTO field_data VALUES (2, 'No', 'volunteer');
+INSERT INTO field_data VALUES (1, 'Female', 'gender');
+INSERT INTO field_data VALUES (2, 'Male', 'gender');
+INSERT INTO field_data VALUES (1, 'Monday', 'days');
+INSERT INTO field_data VALUES (2, 'Tuesday', 'days');
+INSERT INTO field_data VALUES (3, 'Wednesday', 'days');
+INSERT INTO field_data VALUES (4, 'Thursday', 'days');
+INSERT INTO field_data VALUES (5, 'Friday', 'days');
+INSERT INTO field_data VALUES (6, 'Saturday', 'days');
+INSERT INTO field_data VALUES (7, 'Sunday', 'days');
+
+
+CREATE TABLE formitable_users (
+  UserID int(5) unsigned NOT NULL auto_increment,
+  Email varchar(40) NOT NULL default '',
+  Password varchar(16) NOT NULL default '',
+  FName varchar(25) NOT NULL default '',
+  MName varchar(25) NOT NULL default '',
+  LName varchar(25) NOT NULL default '',
+  UserType enum('0','1','2','3','4') NOT NULL default '0',
+  Occupation tinytext NOT NULL,
+  Address tinytext NOT NULL,
+  Address2 tinytext NOT NULL,
+  City tinytext NOT NULL,
+  PostalCode int(5) unsigned NOT NULL default '0',
+  TelePhone varchar(16) NOT NULL default '',
+  Mobile varchar(16) NOT NULL default '',
+  Facsimile varchar(16) NOT NULL default '',
+  FindUs enum('Website','Search','Word of Mouth','Other') NOT NULL default 'Search',
+  NewsLetter enum('1','0') NOT NULL default '1',
+  Donation enum('0','1','2','3','4','5','6') NOT NULL default '0',
+  Donation_Type enum('0','1','2') NOT NULL default '0',
+  Donation_Amount varchar(7) NOT NULL default '0',
+  recurring_Method enum('0','1','2','3','4','5','6') NOT NULL default '0',
+  NamePosted enum('1','0') NOT NULL default '1',
+  volunteer enum('2','1','0') NOT NULL default '0',
+  gender enum('2','1','0') NOT NULL default '0',
+  Age tinyint(3) unsigned NOT NULL default '0',
+  WkDays set('','1','2','3','4','5','6','7') NOT NULL default '',
+  Details tinytext NOT NULL,
+  StateCode enum('','AK','AZ','AR','CA','CO','CT','DE','FL','GA','GU','HI','ID','IL','IN','IA','KS','KY',
+      'LA','ME','MH','MD','MA','MI','MN','MS','MO','MT','NE','NV','NJ','NM','NY','NC','ND','OH','OK','OR',
+      'PW','PA','PR','RI','SC','SD','TN','TX','UT','VT','VI','VA','WA','WV','WI','WY') NOT NULL default '',
+  CancelDonation enum('1','0') NOT NULL default '0',
+  PRIMARY KEY  (UserID,UserID)
+) TYPE=MyISAM;
+
+
+# also see `states` table in survey style example
+</pre>
+
+	</div>
+	<div id="clear"><!-- --></div>
+</div>
+<div id="footer"><p><a href="http://sourceforge.net/projects/formitable/">Formitable</a> is licensed under the GPL. Hosting by SourceForge. <a href="http://sourceforge.net/"><img src="paged.php_files/sflogo.png" alt="SourceForge.net Logo" border="0" height="31" width="88"></a></p></div>
+</body></html>

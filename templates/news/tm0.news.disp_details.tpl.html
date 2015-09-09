@@ -1,0 +1,14 @@
+<div id="content">
+  <div class="msgBox">
+    <h3> {$news.title} </h3>
+    {if ($news.photo) != ''}
+    <div class="img" style="width: 300px;border:1px solid red;clear:both;">
+      <img src="{$news.photo}">
+      <label class="msg">{$news.photo_desc}</label>
+    </div>
+    {/if}
+    <p>
+      <label class="msg">{$news.details}</label>
+    </p>
+  </div>
+</div>

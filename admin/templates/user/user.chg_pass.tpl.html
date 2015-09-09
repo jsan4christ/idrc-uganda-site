@@ -1,0 +1,48 @@
+<div id="content">
+  {if !isset($updateMsg) || $updateMsg eq "Authentication error! The old Password doesnt match the one in the Database . Either Try again or Contact the System Administrator."}
+  {if isset($chg_pass) }
+  <label class="labels" style="color:red;">{$chg_pass}</label><br>
+  {/if}
+  {if isset($updateMsg) }
+  <div class="msgBox">
+    <label class="msg">{$updateMsg}</label><br/>
+  </div>
+  {/if}
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form method="post" action="./index.php?path=./main/user/user.chg_pass.php">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Old Password *</label>
+            <span class="err">{validate id="password" message="It should not be Empty"}</span>
+            <input type="password" name="oldpassword" size="10" value="{$password|escape}" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">New Password *</label>
+            <span class="err">{validate id="password1" message="It should be atleast six characters long"}</span>
+            <input type="password" name="newpassword" size="20" value="{$newpassword|escape}" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">Confirm New Password *</label>
+            <span class="err">{validate id="password2" message="The New Passwords dont match"}</span>
+            <input type="password" name="confpassword" size="20" value="{$confpassword|escape}" class="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form"><input type="submit" name="submit" value="submit">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

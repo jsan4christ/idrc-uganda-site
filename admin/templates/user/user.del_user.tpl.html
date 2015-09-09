@@ -1,0 +1,18 @@
+<div id="content">
+  {if !isset($msg) }
+  <div class="msgBox">
+    <label class="msg"> You are about to delete Information regarding:</label><label class="labels" style="color:red"> {$fname}, {$lname}</label>
+    <h3 style="color:red">
+      NOTE:ALL INFORMATION REGARDING THIS USER WILL BE DELETED.
+    </h3>
+    <p>
+      To proceed, click: <a href="./index.php?path=./main/user/user.del_user.php&identifier={$identifier}&fname={$fname}&lname={$lname}&delete=confirmed"><b style="color:red"> DELETE </b></a><br>
+      Else: <a href="javascript:window.history.back()"> CANCEL </a><br>
+    </p>
+  </div>
+  {else}
+  <div class="msgBox">
+    <label class="msg"> {$msg} </label>
+  </div>
+  {/if}
+</div>

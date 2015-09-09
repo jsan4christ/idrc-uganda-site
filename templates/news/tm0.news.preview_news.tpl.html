@@ -1,0 +1,31 @@
+<div id="content">
+{if !isset($msg) }
+<div class="msgBox">
+  <center><label> ARTICLE PREVIEW </label></center>
+
+  <h3> {$details.title} </h3>
+  {if ($details.photo) != ''}
+  <img class="img" src="{$news.photo}">
+  {/if}
+  <p>
+    <label class="msg">
+      {$details.summary}
+    </label>
+  </p>
+  <p>
+    <label class="msg">
+      {$details.details}
+    </label>
+  </p>
+
+  <a href="./index.php?path=./main/news/tm0.news.upd_news.php&news_no={$news_no}"> UPDATE </a><br>
+  <a href="./index.php?path=./main/news/tm0.news.del_news.php&news_no={$news_no}"> DELETE </a><br>
+  <a href="./index.php?path=./main/news/tm0.news.upload_photo.php&news_no={$news_no}"> UPLOAD PHOTO </a><br>
+
+</div>
+{else}
+<div class="msgBox">
+  <label class="msg">An Error Occurred. News Submission Failed.</label>
+</div>
+{/if}
+</div>

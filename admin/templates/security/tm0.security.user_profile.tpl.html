@@ -1,0 +1,29 @@
+<div id="content">
+  <span> Choose a User in order to view the Profiles assigned to him/her. </span>
+
+  <form  method="post" action="./index.php?path=./main/security/tm0.security.user_profile.php" name="delProfile">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td ><label class="textlabel">Username </label><br>
+            { $user }
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <div class="msgBox">
+    <label class="msg"> The following Profiles are assigned to the above chosen User;</label><br>
+
+    {if isset($msg) }
+    <label class="msg" style="padding-left:10px;"> NONE </label>
+    {else}
+    <ul style="list-style:none;margin:0;padding:0 0 0 1em;text-indent:-1em;">
+      {section name=info loop=$profiles}
+      <li style="padding-left:10px;">&#187; <label class="msg"> {$profiles[info].profile} </label></li>
+      {/section}
+    </ul>
+    {/if}
+  </div>
+</div>

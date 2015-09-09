@@ -1,0 +1,16 @@
+<div id="vertmenu">
+ <h1>Latest News</h1>
+    <ul>
+    {section name=info loop=$news}
+    <li><a href="./index.php?prgm=news-details&news_no={$news[info].news_no}">{$news[info].title} - {$news[info].pub_date}</a></li>
+    {/section}
+    </ul>
+  <h1>New Publications</h1>
+    <ul>
+    {section name=info loop=$pubs}
+    <li><a href="./index.php?prgm=pubs.view_pub&doc={$pubs[info].doc}">&nbsp;{$pubs[info].title} - {$pubs[info].pub_date}</a></li>
+    {/section}
+    </ul>
+</div>
+
+			

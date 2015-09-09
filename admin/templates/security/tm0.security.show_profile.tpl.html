@@ -1,0 +1,45 @@
+<div id="content">
+  {if !isset($searchMsg) }
+  {* display pagination header *}
+  <label>  </label>
+  <table class="table">
+    <caption>{$paginate.first}-{$paginate.last} Profiles out of {$paginate.total} displayed.</caption>
+    <thead class="thead">
+      <tr class="tr">
+        <th class="th">Profile ID</th>
+        <th class="th">Profile Name</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      {section name=info loop=$profile}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+
+        <td class="td"><a href="./index.php?path=./main/security/tm0.security.disp_profile.php&profile_id={$profile[info].profile_id}">{$profile[info].profile_id}</a></td>
+        <td class="td">{$profile[info].profile}</td>
+      </tr>
+      {/section}
+    </tbody>
+    <tfoot class="tfoot">
+      {if count($profile) % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td" colspan="2">
+          <label class="labels"> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  {* display pagination info *}
+  {*<label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>*}
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+  </div>
+  {/if}
+</div>

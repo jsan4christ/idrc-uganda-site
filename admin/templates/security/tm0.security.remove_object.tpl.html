@@ -1,0 +1,38 @@
+<div id="content">
+  {if !isset($updateMsg) }
+  <span> Removing an Object from a Profile  </span>
+  <span class="title"> Fields denoted with * <label style="color:red;">must</label> be filled in please. </span>
+  <form method="post" action="./index.php?path=./main/security/tm0.security.remove_object.php">
+    <div id="forms">
+      <table width="100%">
+
+        <tr>
+          <td><label class="textlabel">Profile *</label>
+            <span class="err">{validate id="prof" message="A Profile is required"}</span>
+            { $profiles }
+          </td>
+        </tr>
+        <tr>
+          <td ><label class="textlabel">Object *</label>
+            <span class="err">{validate id="obj" message="Choose an Object please"}</span>
+            { $objects }
+          </td>
+        </tr>
+        {if isset($button) }
+        <tr>
+          <td>
+            <div class="button">
+              <input type="reset" value="Reset Form" onclick="javascript:window.history.back()"><input type="submit" name="submit" value="remove">
+            </div>
+          </td>
+        </tr>
+        {/if}
+      </table>
+    </div>
+  </form>
+  {else}
+  <div class="msgBox">
+    <label class="msg">{ $updateMsg }</label>
+  </div>
+  {/if}
+</div>

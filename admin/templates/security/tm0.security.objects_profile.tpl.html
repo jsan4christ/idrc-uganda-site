@@ -1,0 +1,27 @@
+<div id="content">
+  <span> Choose a Profile in order to view the Objects assigned to it. </span>
+  <form  method="post" action="./index.php?path=./main/security/tm0.security.objects_profile.php" name="delProfile">
+    <div id="forms">
+      <table width="100%">
+        <tr>
+          <td><label class="textlabel">Profile * </label>
+            { $profiles }
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <div class="msgBox">
+    <label class="msg"> Following Objects are assigned to the above chosen Profile;</label><br>
+    {if isset($msg) }
+    <label class="msg" style="padding-left:10px;"> NONE </label>
+    {else}
+    <ul style="list-style:none;margin:0;padding:0 0 0 1em;text-indent:-1em;">
+      {section name=info loop=$objects}
+      <li style="padding-left:10px;">&#187; <label class="msg"> {$objects[info].object} </label></li>
+      {/section}
+    </ul>
+    {/if}
+  </div>
+</div>

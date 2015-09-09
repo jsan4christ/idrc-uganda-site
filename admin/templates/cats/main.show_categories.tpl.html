@@ -1,0 +1,45 @@
+<div id="content"> 
+  {if isset($sessionUsername) }
+  <div id="secLinks" >
+    <b style="float:left "> </b>
+    <b style="float:right ">
+      <a style="color:#FFFFFF "href=""> </a>
+    </b>
+  </div>
+  {/if}
+  <br />
+  {if !isset($searchMsg) }
+
+  {* display pagination header *}
+  <label> Results {$paginate.first}-{$paginate.last} out of {$paginate.total} displayed. </label>
+  <table class="table" summary="Categories">
+    <thead>
+      <tr style="font-size:14px;">
+        <th class="th"> ID </th>
+        <th class="th"> Name </th>
+      </tr>
+    </thead>
+    <tbody>
+      {section name=info loop=$cats}
+      {if $smarty.section.info.index % 2 == 0}
+      <tr class="tr odd">
+      {else}
+      <tr class="tr">
+        {/if}
+        <td class="td"> {$cats[info].id} </td>
+        <td class="td"> {$cats[info].value} </td>
+      </tr>
+      {/section}
+    </tbody>
+  </table>
+  {* display pagination info *}
+  <label> {paginate_prev} {paginate_middle page_limit="3"} {paginate_next} </label>
+  {else}
+  <div class="msgBox">
+    <h3> {$searchMsg} </h3>
+    <p>
+
+    </p>
+  </div>
+  {/if}
+</div> 

@@ -1,0 +1,19 @@
+<div id="content">
+<center>
+    <div class="msgBox">
+      {if isset($loginMsg) }
+      <h3 style="color:red;">LOGIN ERROR</h3>
+      <label class="msg"> {$loginMsg} </label>
+      {elseif isset($authMsg) }
+      <h3 style="color: red;">AUTHENTICATION ERROR</h3>
+      <label class="msg"> {$authMsg} </label>
+      {elseif isset($accountMsg) }
+      <h3 style="color: red;">ACCOUNT STATUS</h3>
+      <label class="msg"> {$accountMsg} </label>
+      {elseif isset($sessionMsg) }
+      <h3 style="color: red;">SESSION ERROR</h3>
+      <label class="msg"> {$sessionMsg} </label>
+      {/if}
+    </div>
+  </center>
+</div>
